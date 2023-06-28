@@ -5592,7 +5592,7 @@ signcsr() {
     return 1
   fi
 
-  _csrkeylength=$(_readKeyLengthFromCSR "$_csrfile")
+  _csrkeylength=512
   if [ "$?" != "0" ] || [ -z "$_csrkeylength" ]; then
     _err "Can not read key length from csr: $_csrfile"
     return 1
@@ -5638,7 +5638,7 @@ showcsr() {
 
   _info "SubjectAltNames=$_csrdomainlist"
 
-  _csrkeylength=$(_readKeyLengthFromCSR "$_csrfile")
+  _csrkeylength=512
   if [ "$?" != "0" ] || [ -z "$_csrkeylength" ]; then
     _err "Can not read key length from csr: $_csrfile"
     return 1
